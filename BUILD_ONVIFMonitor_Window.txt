@@ -24,6 +24,7 @@ BUILD
 			 where there are "msys2_installer/lastest@bincrafters/stable" to "msys2/20210228@tereius/stable"
 			 where there are "msys2_installer" to "msys2"
 			 Then save file.
+Link fix bug: https://github.com/conan-io/conan-center-index/issues/3257
 
 3. Create a (build) directory (preferably outside the git root dir)
 
