@@ -1,0 +1,38 @@
+INSTALL TOOL
+
+1. Install Visual Studio 2017
+2. Install CMake 3.22.6
+3. Install Python 3 (version < 3.11.x)
+4. Install conan 1.65.0.0: pip install conan==1.65.0.0
+5. Upgrading PyYaml to the newer version:  pip install --upgrade PyYaml
+6. Install conan 1.65 for Windows, download from. conan.io
+7. Modify: [requires = "libONVIF/1.1.0@tereius/stable"] in conanfile.py file at <root_dir_git>
+
+BUILD
+
+1. To build the dependencies yourself you have to add two conan repositories first:
+
+    conan remote add tereius https://api.bintray.com/conan/tereius/public-conan
+    conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+    
+2. After that just run following command in the git root dir (where the conanfile.py is located):
+
+    conan install ./ -s build_type=Debug --build missing
+	
+	***NOTE: Likely occur error because the host have not "msys2_installer" in bincrafters.
+			 For fix this error, we will must to modify to the conanfile.py file in folder: "C:\Users\[USER_NAME]\.conan\data\ffmpeg\4.2\tereius\stable\export"
+			 where there are "msys2_installer/lastest@bincrafters/stable" to "msys2/20210228@tereius/stable"
+			 where there are "msys2_installer" to "msys2"
+			 Then save file.
+
+3. Create a (build) directory (preferably outside the git root dir)
+
+4. For Windows use a CMake generator like "NMake Makefiles" or "Visual Studio [...]" e.g.:
+
+    cd <build_dir>
+    cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug <git_root_dir>
+	or
+	cmake -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE:STRING=Debug <git_root_dir>
+    cmake --build ./
+    cmake --build ./ --target install (or open .sln file with Visual Studio 2017, then build with Debug Mode, Release Mode)
+
