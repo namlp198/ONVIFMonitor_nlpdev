@@ -34,7 +34,7 @@ Link fix bug: https://github.com/conan-io/conan-center-index/issues/3257
     cd <build_dir>
     cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug <git_root_dir>
 	or
-	cmake -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE:STRING=Debug <git_root_dir>
+	cmake -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_GENERATOR_PLATFORM=x64 <git_root_dir>
     cmake --build ./
     cmake --build ./ --target install (or open .sln file with Visual Studio 2017, then build with Debug Mode, Release Mode)
 
