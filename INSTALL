@@ -36,6 +36,6 @@ To print the relevant variables you may want to change use:
 For Windows use a CMake generator like "NMake Makefiles" or "Visual Studio [...]" e.g.:
 
     cd <build_dir>
-    cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug <git_root_dir>
+    cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_GENERATOR_PLATFORM=x64 <git_root_dir>
     cmake --build ./
     cmake --build ./ --target install
