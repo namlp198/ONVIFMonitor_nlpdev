@@ -15,6 +15,7 @@ BUILD
 
     conan remote add tereius https://api.bintray.com/conan/tereius/public-conan
     conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+    conan remote add com.github.tereius https://api.bintray.com/conan/com.github.tereius/public-conan
     
 2. After that just run following command in the git root dir (where the conanfile.py is located):
 
